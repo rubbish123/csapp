@@ -35,9 +35,3 @@ typedef struct INSTRUCT_STRUCT{
     od_t src;
     od_t dst;
 } inst_t;
-
-#define INST_LEN 100
-
-inst_t program[INST_LEN];
-
-uint64_t decode_od(od_t od);

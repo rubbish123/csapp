@@ -1,5 +1,5 @@
-#include "./cpu/register.h"
-#include "./memory/instruction.h"
+#include "cpu/register.h"
+#include "memory/instruction.h"
 #include <stdio.h>
 
 int main(){
@@ -9,18 +9,4 @@ int main(){
     printf("al:%02x\n",cpu.al);
     printf("ah:%02x\n",cpu.ah);
     return 0;
-}
-
-uint64_t decode_od(od_t od){
-    if(od.type==IMM){
-        return od.imm;
-    }
-    else if(od.type==REG){
-        return od.reg1;
-    }
-    else{
-        uint64_t addr=MM_LEN+0xff;
-        // mod mm的最大长度，防止数组越界
-        return mm[addr%MM_LEN];
-    }
 }
